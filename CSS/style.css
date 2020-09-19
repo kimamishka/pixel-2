@@ -904,7 +904,8 @@ body {
    display: flex;
    justify-content: space-between;
    max-width: 100%;
-   overflow: hidden;
+   /*overflow: hidden;*/
+   overflow: auto;
 }
 .arrow-left {
    margin-top: 14%;
