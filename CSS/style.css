@@ -1630,8 +1630,20 @@ body {
       display: none;
    }
    .call__footer980 {
+      position: relative;
       display: block;
       margin-top: 20px;
+   }
+   .call__footer980 a {
+      position: absolute;
+      top: 20px;
+      left: 17px;
+      color: #4673ab;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 12px;
+      text-transform: uppercase;
+      text-align: center;
    }
 }
 @media (max-width: 890px) {
