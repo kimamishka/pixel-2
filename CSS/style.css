@@ -92,6 +92,11 @@ body {
 }
 /*TOP-MENU*/
 .header {
+   position: fixed;
+   z-index: 1;
+   left: 0;
+   top: 0;
+   width: 100%;
    background-color: #040d0d;
 }
 .burger {
@@ -240,7 +245,7 @@ body {
 .topper-content {
    display: flex;
    justify-content: space-between;
-   margin-top: 12px;
+   margin-top: 52px; /*40+12*/
    margin-bottom: 20px;
 }
 .topper__column1 {
