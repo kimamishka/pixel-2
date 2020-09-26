@@ -81,19 +81,21 @@ body {
    box-sizing: border-box;
 }
 .wrapper {
+   position: relative;
    max-width: 1920px;
    width: 100%;
    font-family: Roboto;
 }
 .container {
    max-width: 1170px;
+   width: 100%; /*почему-то не работает*/
    padding: 0 15px;
    margin: 0 auto;
 }
 /*TOP-MENU*/
 .header {
    position: fixed;
-   z-index: 1;
+   z-index: 3;
    left: 0;
    top: 0;
    width: 100%;
@@ -542,7 +544,6 @@ body {
    width: 40%;
    display: flex;
    flex-direction: column;
-   /*justify-content: right;*/
    text-align: right;
 }
 .topper__top {
@@ -581,7 +582,6 @@ body {
    background-color: #ff5816;
    border-radius: 10px;
    box-shadow: inset 0 -3px 0 rgba(0, 1, 1, 0.23);
-   /*padding: 10px 0 10px 5px;*/
 }
 .main-menu__item {
    border-right: 1px solid #ff7944;
@@ -895,9 +895,7 @@ body {
    font-weight: 300;
    text-decoration: underline;
 }
-.arrows-320 {
-   display: none;
-}
+
 .title__right img {
    width: 30px;
    height: 30px;
@@ -905,18 +903,62 @@ body {
 .title__right a:first-child {
    margin-right: 7px;
 }
-.row__container {
+/* Слайдер */
+.slick-slider {
+   min-width: 0;
+}
+/* Ограничивающая оболочка */
+.slick-list {
+   overflow: hidden;
+}
+/* Лента слайдов */
+.slider1 .slick-track {
    display: flex;
-   justify-content: space-between;
+}
+.slider-brands .slick-track {
+   display: flex;
+}
+/* Конкретный слайдер */
+.slider1,
+.slider-brands {
+   display: flex;
+   position: relative;
+   /*align-items: center;*/
+   padding: 0 30px;
+}
+.prev {
+   left: 0;
+   position: absolute;
+   top: 50%;
+   margin-top: -22px;
+   z-index: 2;
+   cursor: pointer;
+}
+.next {
+   right: 0;
+   position: absolute;
+   top: 50%;
+   margin-top: -22px;
+   z-index: 2;
+   cursor: pointer;
+}
+.brands .prev,
+.buynow .prev,
+.brands .next,
+.buynow .next {
+   width: 0;
+}
+.slider__item {
+   display: block; /*ширина элемента слайдера высчитывается автоматически в зависимости от количества slidesToShow и ширины окна браузера*/
+}
+.slider-brands .slider__item {
+   width: 120px;
+   height: 50px;
+}
+.slider-brands .slider__item img {
    max-width: 100%;
-   /*overflow: hidden;*/
-   overflow: auto;
-}
-.arrow-left {
-   margin-top: 14%;
-}
-.arrow-right {
-   margin-top: 14%;
+   width: 120px;
+   height: 50px;
 }
 .item__n {
    display: flex;
@@ -924,8 +966,9 @@ body {
    justify-content: space-between;
    position: relative;
    width: 233px;
+   min-width: 0; /*для слайдера, т.к. у меня дисплей: флекс*/
    height: 388px;
-   margin: 0 auto 15px;
+   /*margin: 0 auto 15px;*/
    border-radius: 10px;
    border: 1px solid #dbdee6;
    background-color: #ffffff;
@@ -947,12 +990,6 @@ body {
 }
 .image {
    text-align: center;
-   /*display: flex;
-   justify-content: center;
-   align-items: center;
-   width: 100%;
-   max-width: 192px;
-   height: 174px;*/
 }
 .item__n-text {
    display: flex;
@@ -962,6 +999,7 @@ body {
    padding-top: 34px;
 }
 .model {
+   width: 150px;
    margin-bottom: 20px;
 }
 .model a {
@@ -1091,6 +1129,9 @@ body {
 }
 .action__title a:hover {
    color: #ff5e1e;
+}
+.action__img {
+   text-align: center;
 }
 .action__img img {
    width: 100%;
@@ -1409,6 +1450,7 @@ body {
    font-weight: 300;
    line-height: 18px;
    margin-bottom: 30px;
+   overflow: auto;
 }
 .row2__item span {
    font-weight: 700;
@@ -1576,7 +1618,6 @@ body {
 .f-col4__320 {
    width: 138px;
    margin-right: 10%;
-   /*margin-left: 15%;*/
 }
 .fbox320__row2 {
    display: flex;
@@ -1592,10 +1633,6 @@ body {
    .title__line {
       display: none;
    }
-   .arrow-left,
-   .arrow-right {
-      display: none;
-   }
    .all__n {
       display: none;
    }
@@ -1609,15 +1646,37 @@ body {
       display: block;
       width: 30%;
    }
-   .arrows-320 {
-      display: block;
+   .prev {
+      position: absolute;
+      /* width: 30px;
+      height: 30px;*/
+      top: -48px;
+      left: calc(99.9% - 70px);
+      z-index: 2;
+      cursor: pointer;
+   }
+   .next {
+      position: absolute;
+      /* width: 45px;
+      height: 30px;*/
+      top: -48px;
+      right: 0;
+      padding-left: 15px;
+      z-index: 2;
+      cursor: pointer;
+   }
+   .brands .prev,
+   .buynow .prev {
+      width: 30px;
+   }
+   .brands .next,
+   .buynow .next {
+      width: 45px;
    }
    .item__n {
       width: 213px;
    }
-   .buy__title {
-      width: 100%;
-   }
+
    .brands__left {
       width: 70%;
    }
@@ -1663,23 +1722,10 @@ body {
    }
 }
 @media (max-width: 750px) {
-   .item__n:nth-child(5),
-   .item__a:nth-child(5) {
-      display: none;
-   }
-   .item__n,
-   .item__a {
-      width: 213px;
-   }
    .action__img img {
       width: 211px;
    }
-   .buy__title {
-      width: 100%;
-   }
-   .item__b:last-child {
-      display: none;
-   }
+
    .brands__content {
       width: 100%;
       height: 52px;
@@ -1761,22 +1807,16 @@ body {
    }
 }
 @media (max-width: 320px) {
-   .item__n:nth-child(4),
-   .item__a:nth-child(4),
-   .item__n:nth-child(3),
-   .item__a:nth-child(3) {
-      display: none;
-   }
    .item__n {
       width: 285px;
       height: 388px;
    }
    .item__a {
-      width: 289px;
+      width: 280px;
       height: 404px;
    }
    .action__img img {
-      width: 287px;
+      width: 280px;
    }
    .actions__left {
       width: 50%;
