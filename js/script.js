@@ -6,6 +6,23 @@ $(document).ready(function () {
    });
 });
 
+//АККОРДЕОН
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+   acc[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+         panel.style.display = "none";
+      } else {
+         panel.style.display = "block";
+      }
+   });
+}
+
 //СЛАЙДЕР
 $(document).ready(function () {
    $('.slider1').slick({
@@ -16,7 +33,7 @@ $(document).ready(function () {
       adaptiveHeight: true,
       slidesToShow: 4,
       autoplay: false,
-      speed: 1000,/*1000=1секунда*/
+      speed: 800,/*1000=1секунда*/
       autoplaySpeed: 1400,
       responsive: [
          {
@@ -53,6 +70,8 @@ $(document).ready(function () {
       ]
    });
 });
+
+
 
 $(document).ready(function () {
    $('.slider-brands').slick({

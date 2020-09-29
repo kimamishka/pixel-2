@@ -117,11 +117,13 @@ body {
 }
 .main__item-item {
    margin-right: 10px;
+   cursor: pointer;
 }
-.main__item img {
+.main__item-item img {
    width: 9px;
    height: 8px;
-   margin-top: 2px;
+   margin-top: 7px;
+   margin-left: 2px;
 }
 .top-menu__item {
    border-right: 1px solid #bdc3c5;
@@ -130,6 +132,7 @@ body {
 .top-menu__item:last-child {
    border: none;
 }
+
 .main__item-item,
 .top-menu__item a {
    color: #bdc3c5;
@@ -137,6 +140,36 @@ body {
    font-weight: 300;
    line-height: 20px;
 }
+.panel {
+   display: none;
+   position: absolute;
+   z-index: 6;
+   top: 40px;
+   left: 50%;
+   background-color: rgba(4, 13, 13, 0.95);
+   width: 50%;
+   height: 100vh;
+   padding: 27px 15px 15px 35px;
+   overflow: hidden;
+}
+
+.panel a {
+   color: #bdc3c5;
+   font-size: 13px;
+   font-weight: 300;
+   line-height: 30px;
+}
+.panel h3 {
+   color: #bdc3c5;
+   font-size: 13px;
+   font-weight: 700;
+   margin-top: 10px;
+   margin-bottom: 30px;
+}
+.accordion {
+   transition: 0.4s;
+}
+
 @media (max-width: 1140px) {
    body.lock {
       overflow: hidden;
@@ -205,6 +238,17 @@ body {
    }
    .main__item img {
       margin-top: -6px;
+   }
+   .main__item-item img {
+      width: 9px;
+      height: 8px;
+      margin-top: 7px;
+      margin-left: 2px;
+   }
+   .accordion:hover,
+   .accordion:active {
+      padding: 10px;
+      background-color: rgba(4, 13, 13, 0.95);
    }
    .main__item,
    .top-menu__item {
@@ -923,7 +967,6 @@ body {
 .slider-brands {
    display: flex;
    position: relative;
-   /*align-items: center;*/
    padding: 0 30px;
 }
 .prev {
@@ -966,7 +1009,7 @@ body {
    justify-content: space-between;
    position: relative;
    width: 233px;
-   min-width: 0; /*для слайдера, т.к. у меня дисплей: флекс*/
+   /*min-width: 0; для слайдера, т.к. у меня дисплей: флекс*/
    height: 388px;
    /*margin: 0 auto 15px;*/
    border-radius: 10px;
@@ -1648,8 +1691,6 @@ body {
    }
    .prev {
       position: absolute;
-      /* width: 30px;
-      height: 30px;*/
       top: -48px;
       left: calc(99.9% - 70px);
       z-index: 2;
@@ -1657,8 +1698,6 @@ body {
    }
    .next {
       position: absolute;
-      /* width: 45px;
-      height: 30px;*/
       top: -48px;
       right: 0;
       padding-left: 15px;
@@ -1780,6 +1819,25 @@ body {
       justify-content: center;
    }
 }
+@media (max-width: 500px) {
+   .item__n {
+      width: 285px;
+      height: 388px;
+      margin: 0 auto;
+   }
+   .item__n:first-child {
+      margin: 0 auto;
+   }
+   .item__a {
+      width: 280px;
+      height: 404px;
+      margin: 0 auto;
+   }
+   .action__img img {
+      /*width: 280px;*/
+      width: 100%;
+   }
+}
 @media (max-width: 391px) {
    .name__row1 {
       padding: 13px 8px;
@@ -1807,20 +1865,6 @@ body {
    }
 }
 @media (max-width: 320px) {
-   .item__n {
-      width: 285px;
-      height: 388px;
-   }
-   .item__a {
-      width: 280px;
-      height: 404px;
-   }
-   .action__img img {
-      width: 280px;
-   }
-   .actions__left {
-      width: 50%;
-   }
    .buynow {
       display: none;
    }
