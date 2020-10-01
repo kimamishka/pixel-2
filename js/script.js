@@ -62,7 +62,8 @@ $(document).ready(function () {
          {
             breakpoint: 500,
             settings: {
-               slidesToShow: 1,
+               variableWidth: true,
+               slidesToShow: 2,
                prevArrow: "<img src='img/news/left-320.jpg' class='prev' alt='1'>",
                nextArrow: "<img src='img/news/right-320.jpg' class='next' alt='2'>"
             }
