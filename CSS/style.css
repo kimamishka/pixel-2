@@ -193,6 +193,7 @@ body {
       width: 32px;
       height: 15px;
       z-index: 3;
+      cursor: pointer;
    }
    .header-burger::before,
    .header-burger:after {
@@ -291,7 +292,7 @@ body {
 .topper-content {
    display: flex;
    justify-content: space-between;
-   margin-top: 52px; /*40+12*/
+   margin-top: 72px; /*40+12+20*/
    margin-bottom: 20px;
 }
 .topper__column1 {
@@ -433,8 +434,10 @@ body {
 .voip {
    display: flex;
 }
-.voip img {
-   margin-top: -15px;
+.p__img {
+   width: 25px;
+   height: 25px;
+   padding: 3px 3px 0;
 }
 .voip__title {
    color: #040d0d;
@@ -986,9 +989,7 @@ body {
    cursor: pointer;
 }
 .brands .prev,
-.buynow .prev,
-.brands .next,
-.buynow .next {
+.brands .next {
    width: 0;
 }
 .slider__item {
@@ -1271,11 +1272,6 @@ body {
 }
 .brands__left {
    width: 40%;
-}
-.brands__content {
-   width: 100%;
-   height: 52px;
-   background: url("../img/brands/brands.jpg") no-repeat;
 }
 /*-------------------------------------------------*/
 .thebest {
@@ -1719,12 +1715,6 @@ body {
    .brands__left {
       width: 70%;
    }
-   .brands__content {
-      width: 100%;
-      height: 52px;
-      margin: 0 auto;
-      background: url("../img/brands/980.jpg") no-repeat;
-   }
    .r__title {
       padding: 8px 5px 0;
    }
@@ -1765,12 +1755,6 @@ body {
       width: 211px;
    }
 
-   .brands__content {
-      width: 100%;
-      height: 52px;
-      margin: 0 auto;
-      background: url("../img/brands/750.jpg") no-repeat;
-   }
    .thebest__text {
       width: 164px;
    }

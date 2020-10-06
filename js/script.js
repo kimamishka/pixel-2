@@ -82,9 +82,9 @@ $(document).ready(function () {
       dots: false,
       adaptiveHeight: true,
       slidesToShow: 9,
-      autoplay: false,
+      autoplay: true,
       speed: 1000,
-      autoplaySpeed: 1400,
+      autoplaySpeed: 2000,
       responsive: [
          {
             breakpoint: 980,
